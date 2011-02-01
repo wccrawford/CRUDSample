@@ -1,0 +1,26 @@
+<?php foreach($this->messages as $message) { ?>
+	<div style="message"><?php echo $message; ?></div>
+<?php } ?>
+
+<div id="contacts">
+	Contact List
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+		</tr>
+	<?php foreach ($this->contacts as $contact) { ?>
+		<tr>
+			<td><?php echo $this->escape($contact->first_name); ?></td>
+			<td><?php echo $this->escape($contact->last_name); ?></td>
+			<td><a href="/contacts/view/id/<?php echo $contact->id; ?>">View</a></td>
+			<td><a href="/contacts/edit/id/<?php echo $contact->id; ?>">Edit</a></td>
+			<td><a href="/contacts/delete/id/<?php echo $contact->id; ?>">Delete</a></td>
+		</tr>
+	<?php } ?>
+	</table>
+</div>
+
+<div>
+	<a href="/contacts/add">Add Contact</a>
+</div>
